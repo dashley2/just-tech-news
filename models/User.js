@@ -44,7 +44,6 @@ User.init(
             }
         }
   },
-
   {
     // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
 

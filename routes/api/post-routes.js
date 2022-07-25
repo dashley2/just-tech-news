@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
 
-// get all users
+// GET all users
 router.get('/', (req, res) => {
     console.log('======================');
     Post.findAll({
         attributes: ['id', 'post_url', 'title', 'created_at'],
-        order: [['created_at', 'DESC']], 
+        order: [['created_at', 'DESC']],
         include: [
             {
               model: User,
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     });
 });
 
-//GET a single post
+// GET a single post
 router.get('/:id', (req, res) => {
     Post.findOne({
       where: {
@@ -48,7 +48,7 @@ router.get('/:id', (req, res) => {
       });
 });
 
-//Create a post
+// Create a post
 router.post('/', (req, res) => {
     // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
@@ -63,7 +63,7 @@ router.post('/', (req, res) => {
       });
 });
 
-//Update post title
+// Update post title
 router.put('/:id', (req, res) => {
     Post.update(
         {
@@ -88,7 +88,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-//Delete a post
+// Delete a post
 router.delete('/:id', (req, res) => {
     Post.destroy({
       where: {

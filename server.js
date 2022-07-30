@@ -13,6 +13,6 @@ app.use(routes);
 
 // turn on connection to db and server
   //({force: true}) causes database connection to sync with model definitions and association, overwrites tables and re-creates them with association changes
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
